@@ -91,6 +91,9 @@ class BaseError extends Error {
     ":chicken:": {"emoji": "🍗", "eventType": null},
     ":cross:": {"emoji": "✝️", "eventType": null},
     ":death:": {"emoji": "✝️", "eventType": null},
+    ":$:": {"emoji": "💰", "eventType": null},
+    ":money:": {"emoji": "💰", "eventType": null},
+    ":dollar:": {"emoji": "💰", "eventType": null},
   }
   
   
@@ -106,7 +109,7 @@ class BaseError extends Error {
     let eventType = null;
   
     // Search for all the :xxx: patterns in the title (eg. ":run:").
-    [...origTitle.matchAll(/:[a-z]+:/g)].forEach((token) => {
+    [...origTitle.matchAll(/:[a-z$]+:/g)].forEach((token) => {
       const data = titleEnrichmentsAndTypes[token];
       if (!(data)) return;  // `return` in `forEach` is like a `continue` in a `for` loop.
   
